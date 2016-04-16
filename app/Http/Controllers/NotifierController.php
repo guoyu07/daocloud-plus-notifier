@@ -19,8 +19,10 @@ class NotifierController extends Controller
             return $this->failure();
         }
 
+        // 根据 build_type 和 status 组装消息
         $msg = Lang::get('daocloud.' . $build['build_type'] . '_' . strtolower($build['status']), ['name' => $name]);
 
+        // 向别名发送消息，通过 env 方法获取到云巴的 AppKey 和 SecretKey
         $client = new Client();
         $response = $client->request('GET', 'http://rest.yunba.io:8080', [
             'query' => [

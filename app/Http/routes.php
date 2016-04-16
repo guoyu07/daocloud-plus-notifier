@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// 示例：http://daocloud-plus.blankapp.org/b131a88748f84b3f956839d3e9879baf
 Route::post('/{alias}', 'NotifierController@webhook');
