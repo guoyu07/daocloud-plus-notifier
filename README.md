@@ -1,27 +1,77 @@
-# Laravel PHP Framework
+daocloud-plus-notifier
+==============
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![Build Status](https://api.travis-ci.org/lijy91/daocloud-plus-notifier.svg?branch=master)](https://travis-ci.org/lijy91/daocloud-plus-notifier)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## 文档
+- [PSR-2 Coding Style Guide](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## 依赖
+- [PHP >= 5.5.9](http://php.net/)
+- [Laravel >= 5.2](http://laravel.com/)
+- [MySQL >= 5.6](https://www.mysql.com/)
 
-## Official Documentation
+## 快速开始
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+克隆项目源码到本地
+```
+$ cd ~/Documents/Projects
+$ git clone https://github.com/lijy91/daocloud-plus-notifier.git
+$ cd daocloud-plus-notifier
+```
 
-## Contributing
+使用 [Composer](https://getcomposer.org/) 安装依赖库
+```
+$ composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+创建一个新的 Key
+```
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+创建 `.env` 文件
+```
+$ cp .env.example .env
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+修改根目录 `.env` 配置，增加云巴相关配置
+```
+YUNBA_APPKEY=<Your AppKey>
+YUNBA_SECRET_KEY=<Your Secret Key>
+```
+
+执行数据库迁移
+```
+$ composer dump-autoload
+$ php artisan migrate
+```
+
+运行
+```
+$ php artisan serve
+$ open http://localhost:8000
+```
+或
+```
+$ npm start
+```
+
+## 项目使用的开源库
+- [Guzzle](https://github.com/guzzle/guzzle)
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+    Copyright (C) 2016 JianyingLi <lijy91@foxmail.com>
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
