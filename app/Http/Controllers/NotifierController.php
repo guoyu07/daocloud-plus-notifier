@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Validator;
+use Lang;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,14 @@ class NotifierController extends Controller
 {
     protected function webhook(Request $request, $alias)
     {
-        $build_type = $request->input('build_type');
         $name = $request->input('name');
-        $status = $request->input('status');
+        $build = $request->input('build');
+
+        if (!$build) {
+            return $this->failure();
+        }
+
+        $msg = Lang::get('daocloud.' . $build['build_type'] . '_' . strtolower($build['status']), ['name' => $name]);
 
         $client = new Client();
         $response = $client->request('GET', 'http://rest.yunba.io:8080', [
@@ -22,12 +28,14 @@ class NotifierController extends Controller
                 'appkey' => env('YUNBA_APPKEY', ''),
                 'seckey' => env('YUNBA_SECRET_KEY', ''),
                 'alias' => $alias,
-                'msg' =>  $build_type . $name . $status
+                'msg' =>  $msg
             ]
         ]);
+
         if ($response->getStatusCode() == 200) {
             return $this->success();
         }
+
         return $this->failure();
     }
 }
