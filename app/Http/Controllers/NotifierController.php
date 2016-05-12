@@ -27,7 +27,7 @@ class NotifierController extends Controller
         $response = $client->request('GET', 'http://rest.yunba.io:8080', [
             'query' => [
                 'method' => 'publish_to_alias',
-                'appkey' => env('YUNBA_APPKEY', ''),
+                'appkey' => env('YUNBA_APP_KEY', ''),
                 'seckey' => env('YUNBA_SECRET_KEY', ''),
                 'alias' => $alias,
                 'msg' =>  $msg

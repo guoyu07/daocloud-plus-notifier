@@ -36,7 +36,7 @@ $ cp .env.example .env
 
 修改根目录 `.env` 配置，修改云巴相关配置
 ```
-YUNBA_APPKEY=<Your AppKey>
+YUNBA_APP_KEY=<Your AppKey>
 YUNBA_SECRET_KEY=<Your Secret Key>
 ```
 
