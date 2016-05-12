@@ -9,7 +9,6 @@ daocloud-plus-notifier
 ## 依赖
 - [PHP >= 5.5.9](http://php.net/)
 - [Laravel >= 5.2](http://laravel.com/)
-- [MySQL >= 5.6](https://www.mysql.com/)
 
 ## 快速开始
 
@@ -35,7 +34,7 @@ php artisan key:generate
 $ cp .env.example .env
 ```
 
-修改根目录 `.env` 配置，增加云巴相关配置
+修改根目录 `.env` 配置，修改云巴相关配置
 ```
 YUNBA_APPKEY=<Your AppKey>
 YUNBA_SECRET_KEY=<Your Secret Key>
