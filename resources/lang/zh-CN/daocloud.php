@@ -3,6 +3,7 @@
 return [
     // 镜像构建
     'image_build_pending'   => '项目 :name 等待执行',
+    'image_build_enqueue'   => '项目 :name 加入队列',
     'image_build_started'   => '项目 :name 正在执行',
     'image_build_success'   => '项目 :name 执行成功',
     'image_build_timeout'   => '项目 :name 执行超时',
